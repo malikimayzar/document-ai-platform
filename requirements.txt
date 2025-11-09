@@ -1,20 +1,27 @@
+# Streamlit Cloud Requirements - Fixed
+
 # Core Framework
 streamlit>=1.29.0
 
 # AI/ML Libraries
-transformers>=4.30.0
-torch>=2.0.0
-sentence-transformers>=2.2.0
+transformers>=4.36.0
+torch>=2.1.0
+sentence-transformers>=2.2.2
 
-opencv-python-headless>=4.8.0
-Pillow>=10.0.0
+# Computer Vision
+opencv-python-headless>=4.8.1
+Pillow>=10.1.0
 
-spacy>=3.7.0
+# NLP
+spacy>=3.7.2
 
-pymupdf>=1.23.0 
+# PDF Processing
+pymupdf>=1.23.7
 
-numpy>=1.24.0
-pandas>=2.0.0
+# Utilities
+numpy>=1.24.3
+pandas>=2.1.4
 
-# OCR alternatif 
-easyocr>=1.7.0
+# OCR
+easyocr>=1.7.1
+pytesseract>=0.3.10  # ✅ TAMBAH INI
