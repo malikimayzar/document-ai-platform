@@ -1,3 +1,4 @@
+#ocr_engine.py
 import pytesseract
 from PIL import Image
 from pdf2image import convert_from_path

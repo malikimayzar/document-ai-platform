@@ -22,7 +22,6 @@ app_dir = os.path.dirname(parent_dir)
 sys.path.append(parent_dir)
 sys.path.append(app_dir)
 
-# ✅ Fixed import paths - sesuaikan dengan struktur folder Anda
 try:
     from ml.ocr_engine import OCREngine
     from ml.nlp_engine import NLPEngine
@@ -51,7 +50,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ✅ Improved engine initialization with error handling
+
 try:
     ocr_engine = OCREngine(engine=settings.OCR_ENGINE, lang=settings.OCR_LANG)
     nlp_engine = NLPEngine()

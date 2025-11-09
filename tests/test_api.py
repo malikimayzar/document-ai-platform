@@ -11,14 +11,23 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
-# ✅ Improved import with multiple options
-try:
-    from backend.api import app
-except ImportError:
+# ✅ Improved import with multiple options (dynamic import to avoid static unresolved import errors)
+import importlib
+
+_app = None
+_candidates = ["backend.api", "app.backend.api", "api"]
+for _mod in _candidates:
     try:
-        from app.backend.api import app
-    except ImportError:
-        from api import app  # Fallback
+        _module = importlib.import_module(_mod)
+        _app = getattr(_module, "app")
+        break
+    except (ImportError, ModuleNotFoundError, AttributeError):
+        continue
+
+if _app is None:
+    raise ImportError(f"Could not import 'app' from any of {_candidates}")
+
+app = _app
 
 client = TestClient(app)
 
